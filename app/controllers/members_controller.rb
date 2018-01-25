@@ -33,7 +33,7 @@ class MembersController < ApplicationController
 
     if @member.save
       flash[:notice] = 'Member was updated.'
-      redirect_to user_member_path(current_user, @member)
+      redirect_to user_group_member_path(current_user, @group, @member)
     else
       flash.now[:alert] = 'There was an error saving the member. Please try again.'
       render :edit
@@ -42,8 +42,8 @@ class MembersController < ApplicationController
 
   def destroy
     if @member.destroy
-      flash[:notice] = "\"#{@member.title}\" was deleted successfully."
-      redirect_to user_members_path(current_user)
+      flash[:notice] = "\"#{@member.first_name} #{@member.last_name}\" was deleted successfully."
+      redirect_to user_group_path(current_user, @group)
     else
       flash.now[:alert] = 'There was an error deleting the member.'
       render :show

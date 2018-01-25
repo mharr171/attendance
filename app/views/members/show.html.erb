@@ -2,3 +2,11 @@
 <p><%= @member.address %></p>
 <p><%= @member.phone_number %></p>
 <p><%= @member.email %></p>
+
+<div class="navigation">
+  <%= link_to "Back", user_group_path(current_user,@group) %>
+  |
+  <%= link_to "Edit", edit_user_group_member_path(current_user, @group, @member) %>
+  |
+  <%= link_to "Delete", user_group_member_path(current_user, @group, @member), method: :delete, data: {confirm: 'Are you sure?'} %>
+</div>

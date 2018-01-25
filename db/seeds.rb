@@ -35,7 +35,7 @@ puts "\n#{Group.count} groups created"
 # Create Test Members
 150.times do
   @address = Faker::Address.street_address + ', ' + Faker::Address.state_abbr
-  @phone_number = '(' + Faker::Number.number(3) + ')' + Faker::Number.number(3) + '-' + Faker::Number.number(4)
+  @phone_number = '(' + Faker::Number.number(3) + ') ' + Faker::Number.number(3) + '-' + Faker::Number.number(4)
   @first_name = Faker::Name.first_name
   @last_name = Faker::Name.last_name
   @full_name = @first_name + @last_name
@@ -43,7 +43,7 @@ puts "\n#{Group.count} groups created"
     first_name:   @first_name,
     last_name:    @last_name,
     address:      @address,
-    phone_number: Faker::PhoneNumber.cell_phone,
+    phone_number: @phone_number,
     email:        Faker::Internet.free_email(@full_name),
     group:        groups.sample
   )
