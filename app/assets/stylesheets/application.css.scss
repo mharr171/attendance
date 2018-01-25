@@ -1,5 +1,5 @@
-$white_opaque: rgba(250, 250, 250, .3);
-$dark-purple: #fffdf4;
+$body_background: #fffdf4;
+$menu_background: #fdfddd;
 
 * {
 	box-sizing: border-box;
@@ -12,7 +12,7 @@ html {
 body {
  	height: 100%;
   font-family: sans-serif;
-  background: $dark-purple;
+  background: $body_background;
 }
 
 .clearfix:before,
@@ -26,49 +26,47 @@ body {
 }
 
 .container {
-	width: 80%;
+	width: 100%;
   min-width: 800px;
-	max-width: 1600px;
-	background: $white_opaque;
-	margin: 3em auto 0 auto;
-	border-radius: 7px;
-	-webkit-box-shadow: 0 0 4px 3px rgba(0,0,0,.3);
-	box-shadow: 0 0 4px 4px rgba(0,0,0,.03);
-	padding: 1em;
 }
 
-.nav {
+.content {
+	padding: 0 0 0 1em;
+}
 
-	ul.main {
-		margin: 0px;
-	}
-	ul.sub {
-		padding: -20px 0;
-		font-size: 0.8em;
-	}
+.pure-menu {
+	background: $menu_background;
+	height: 100vh;
+}
 
-  ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+.button-success {
+		background: rgb(28, 184, 65); /* this is a green */
+		color: white !important;
+}
 
-    li.navbar {
-      display: inline-block;
-      margin: 0px 15px;
+.button-error {
+		background: rgb(202, 60, 60); /* this is a maroon */
+		color: white !important;
+}
 
-      a {
-        text-decoration: none;
-        color: black;
-        padding: 15px 5px;
-      }
+.button-warning {
+		background: rgb(223, 117, 20); /* this is an orange */
+		color: white !important;
+}
 
-      p.brand {
-        font-size: 1.3em;
-      }
-    }
-  }
+.button-primary {
+		background: rgb(52, 78, 226); /* this is a light blue */
+		color: white !important;
+}
+
+.button-secondary {
+		background: rgb(66, 184, 221); /* this is a light blue */
+		color: white !important;
 }
 
 .notice-area {
-	height: 12px;
+	height: 25px;
+	background: pink;
+	font-size: 0.5em;
+	padding-left: 10px;
 }
