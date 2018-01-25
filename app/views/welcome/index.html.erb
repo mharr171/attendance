@@ -1,2 +1,7 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<div class="">
+  <% if !user_signed_in? %>
+    <h2>Welcome to Attendance</h2>
+  <% else %>
+    <h2>Welcome back to Attendance, <%= current_user.name %>!</h2>
+  <% end %>
+</div>
