@@ -1,0 +1,8 @@
+<%= simple_form_for [current_user, @group, @member] do |f| %>
+  <%= f.input_field :first_name, label: 'First name', placeholder: 'First name' %>
+  <%= f.input_field :last_name, label: 'Last name', placeholder: 'Last name' %>
+  <%= f.input_field :address, label: 'Address', placeholder: '123 Main St, San Francisco' %>
+  <%= f.input_field :phone_number, label: 'Phone number', placeholder: '(555) 555-5555' %>
+  <%= f.email_field :email, label: 'Email', placeholder: 'email' %>
+  <%= f.button :submit %>
+<% end %>

@@ -1,6 +1,7 @@
 class GroupsController < ApplicationController
   before_action :authenticate_user!, except: []
   before_action :set_group, only: %i[show edit update destroy]
+  before_action :set_members, only: %i[show]
 
   def index
     @groups = Group.all
@@ -57,6 +58,10 @@ class GroupsController < ApplicationController
 
   def set_group
     @group = Group.find(params[:id])
+  end
+
+  def set_members
+    @members = @group.members
   end
 
   def group_params

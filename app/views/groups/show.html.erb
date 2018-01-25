@@ -1,2 +1,44 @@
-<h1><%= @group.title %></h1>
-<p><%= @group.description %></p>
+<% if current_user == @group.user %>
+  <h1><%= @group.title %></h1>
+  <p><%= @group.description %></p>
+
+  <%= link_to "Add Member", new_user_group_member_path(current_user, @group), :class=>'pure-button' %>
+
+  <table>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Address</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Show</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+
+    <% @members.each do |member| %>
+      <tr>
+        <td><%= member.first_name %></td>
+        <td><%= member.last_name %></td>
+        <td><%= member.address %></td>
+        <td><%= member.phone_number %></td>
+        <td><%= member.email %></td>
+        <td><%= link_to "Show", user_group_member_path(current_user,@group,member.id) %></td>
+        <td><%= link_to "Edit", edit_user_group_member_path(current_user,@group,member.id) %></td>
+        <td><%= link_to "Delete", '#' %></td>
+      </tr>
+    <% end %>
+  </table>
+<% else %>
+  <p>
+     You do not have access to this page.
+  </p>
+<% end %>
+
+<div class="navigation">
+  <%= link_to "Back", user_groups_path(current_user,@group) %>
+  |
+  <%= link_to "Edit", edit_user_group_path(current_user,@group) %>
+  |
+  <%= link_to "Delete", user_group_path(current_user,@group), method: :delete, data: {confirm: 'Are you sure?'} %>
+</div>
