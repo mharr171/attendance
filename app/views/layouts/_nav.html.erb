@@ -25,9 +25,9 @@
   <% else %>
     <li class="pure-menu-heading">
       Signed in as<br />
-      <%= current_user.name %><br />
+      <small><%= current_user.name %></small><br />
       Last known location<br />
-      <%= @location %>
+      <small><%= @location %></small>
     </li>
     <li class="pure-menu-item">
       <%= link_to "Edit Account", edit_user_registration_path, :class=>'pure-menu-link button-secondary' %>
