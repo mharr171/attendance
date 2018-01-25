@@ -33,8 +33,9 @@ groups = Group.all
 puts "\n#{Group.count} groups created"
 
 # Create Test Members
-50.times do
-  @address = Faker::Address.street_address + ' ' + Faker::Address.state_abbr
+150.times do
+  @address = Faker::Address.street_address + ', ' + Faker::Address.state_abbr
+  @phone_number = '(' + Faker::Number.number(3) + ')' + Faker::Number.number(3) + '-' + Faker::Number.number(4)
   @first_name = Faker::Name.first_name
   @last_name = Faker::Name.last_name
   @full_name = @first_name + @last_name

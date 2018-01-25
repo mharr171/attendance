@@ -1,5 +1,6 @@
 $body_background: #fffdf4;
 $menu_background: #fdfddd;
+$table_alt: #f4f4f4;
 
 * {
 	box-sizing: border-box;
@@ -69,4 +70,8 @@ body {
 	background: pink;
 	font-size: 0.5em;
 	padding-left: 10px;
+}
+
+table tr:nth-child(2n) {
+	background: $table_alt;
 }
