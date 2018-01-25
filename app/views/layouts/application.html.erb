@@ -11,9 +11,10 @@
   <body>
     <div class="container">
       <%= render "layouts/nav" %>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-
+      <div class="notice-area">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+      </div>
       <%= yield %>
     </div>
   </body>

@@ -1,5 +1,5 @@
 <div class="nav">
-  <ul>
+  <ul class="main">
     <li class="navbar">
       <p class="brand"><%= link_to "Attendance", root_path, :class=>'nav-link' %></p>
     </li>
@@ -9,23 +9,27 @@
     <li class="navbar">
       <%= link_to "About", welcome_about_path, :class=>'nav-link' %>
     </li>
-
+  </ul>
+  <ul class="sub">
     <% if !user_signed_in? %>
       <li class="navbar">
         <%= link_to "Sign In", new_user_session_path, :class=>'nav-link' %>
       </li>
+      |
       <li class="navbar">
         <%= link_to "Sign Up", new_user_registration_path, :class=>'nav-link' %>
       </li>
     <% else %>
       <li class="navbar">
-        <p>Signed in as <%= link_to current_user.name, '#', :class=>'nav-link' %></p>
+        Signed in as <%= link_to current_user.name, '#', :class=>'nav-link' %>, Location: <%= @location %>
       </li>
+      |
       <li class="navbar">
         <%= link_to "Edit Account", edit_user_registration_path, :class=>'nav-link' %>
       </li>
+      |
       <li class="navbar">
-        <%= link_to "Sign Out", destroy_user_session_path, :class=>'nav-link' %>
+        <%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class=>'nav-link' %>
       </li>
     <% end %>
   </ul>

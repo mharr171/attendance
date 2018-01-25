@@ -55,3 +55,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Devise - https://github.com/plataformatec/devise
 gem 'devise'
+
+# Faker - https://github.com/stympy/faker
+gem 'faker'
