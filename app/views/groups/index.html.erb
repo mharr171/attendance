@@ -1,0 +1,14 @@
+<div>
+  <% @groups.each do |g| %>
+    <% if g.user == current_user %>
+      <div>
+        <%= link_to g.title, user_group_path(current_user,g.id) %>
+        <%= link_to "Edit", edit_user_group_path(current_user,g.id) %>
+        <%= link_to "Delete", user_group_path(current_user,g.id), method: :delete, data: {confirm: 'Are you sure?'} %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+<div>
+  <%= link_to "Create Group", new_user_group_path(current_user.id) %>
+</div>

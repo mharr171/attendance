@@ -9,6 +9,11 @@
     <li class="navbar">
       <%= link_to "About", welcome_about_path, :class=>'nav-link' %>
     </li>
+    <% if user_signed_in? %>
+      <li class="navbar">
+        <%= link_to "Groups", user_groups_path(current_user), :class=>'nav-link' %>
+      </li>
+    <% end %>
   </ul>
   <ul class="sub">
     <% if !user_signed_in? %>

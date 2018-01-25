@@ -58,3 +58,6 @@ gem 'devise'
 
 # Faker - https://github.com/stympy/faker
 gem 'faker'
+
+# Simple Form -
+gem 'simple_form'
