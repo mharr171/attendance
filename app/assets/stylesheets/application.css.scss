@@ -31,13 +31,14 @@ body {
   min-width: 800px;
 }
 
-.content {
+.content-area {
 	padding: 0 0 0 1em;
 }
 
 .pure-menu {
 	background: $menu_background;
 	height: 100vh;
+	position: fixed;
 }
 
 .button-success {
@@ -67,9 +68,11 @@ body {
 
 .notice-area {
 	height: 25px;
-	background: pink;
+	// background: pink;
+	border-bottom: 1px solid rgba(0,0,0,0.1);
 	font-size: 0.5em;
 	padding-left: 10px;
+	margin-bottom: 20px;
 }
 
 table tr:nth-child(2n) {
