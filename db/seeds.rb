@@ -36,11 +36,11 @@ puts "\n#{Group.count} groups created"
 @group_count = 0
 Group.count.times do
   25.times do
-    @address = Faker::Address.street_address + ', ' + Faker::Address.state_abbr
+    @address =      Faker::Address.street_address + ', ' + Faker::Address.state_abbr
     @phone_number = '(' + Faker::Number.number(3) + ') ' + Faker::Number.number(3) + '-' + Faker::Number.number(4)
-    @first_name = Faker::Name.first_name
-    @last_name = Faker::Name.last_name
-    @full_name = @first_name + @last_name
+    @first_name =   Faker::Name.first_name
+    @last_name =    Faker::Name.last_name
+    @full_name =    @first_name + @last_name
     groups[@group_count].members.create(
       first_name:   @first_name,
       last_name:    @last_name,
@@ -54,3 +54,31 @@ Group.count.times do
 end
 members = Member.all
 puts "\n#{Member.count} members created"
+
+# Create Test Attendance Records and Sheets
+
+@group_count = 0
+Group.count.times do
+  3.times do
+    groups[@group_count].attendance_sheets.create(
+      name:   Faker::Job.seniority + ' Meeting',
+      date:   Faker::Date.between(7.days.ago, Date.today)
+    )
+    @member_total = groups[@group_count].members.count
+    @member_count = 0
+    @member_total.times do
+      groups[@group_count].attendance_sheets.last.attendance_records.create(
+        present:          Faker::Boolean.boolean(0.8),
+        member:           groups[@group_count].members[@member_count]
+      )
+
+      @member_count += 1
+      print '.'
+    end
+  end
+  @group_count += 1
+  print ",\n"
+end
+attendance_sheets = AttendanceSheet.all
+attendance_records = AttendanceRecord.all
+puts "\n#{AttendanceSheet.count} attendance sheets created with #{AttendanceRecord.count} attendance records."
