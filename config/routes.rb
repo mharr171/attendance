@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   resources :users do
     resources :groups do
       resources :members
-      resources :attendance_sheets
+      resources :attendance_sheets do
+        resources :attendance_records
+      end
     end
   end
   root 'welcome#index'

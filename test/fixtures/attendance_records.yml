@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  present: false
+  attendance_sheet: one
+  member: one
+
+two:
+  present: false
+  attendance_sheet: two
+  member: two
