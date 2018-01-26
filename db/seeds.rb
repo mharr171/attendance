@@ -33,22 +33,24 @@ groups = Group.all
 puts "\n#{Group.count} groups created"
 
 # Create Test Members
-150.times do
-  @address = Faker::Address.street_address + ', ' + Faker::Address.state_abbr
-  @phone_number = '(' + Faker::Number.number(3) + ') ' + Faker::Number.number(3) + '-' + Faker::Number.number(4)
-  @first_name = Faker::Name.first_name
-  @last_name = Faker::Name.last_name
-  @full_name = @first_name + @last_name
-  Member.create!(
-    first_name:   @first_name,
-    last_name:    @last_name,
-    address:      @address,
-    phone_number: @phone_number,
-    email:        Faker::Internet.free_email(@full_name),
-    group:        groups.sample
-  )
-  print '.'
+@group_count = 0
+Group.count.times do
+  25.times do
+    @address = Faker::Address.street_address + ', ' + Faker::Address.state_abbr
+    @phone_number = '(' + Faker::Number.number(3) + ') ' + Faker::Number.number(3) + '-' + Faker::Number.number(4)
+    @first_name = Faker::Name.first_name
+    @last_name = Faker::Name.last_name
+    @full_name = @first_name + @last_name
+    groups[@group_count].members.create(
+      first_name:   @first_name,
+      last_name:    @last_name,
+      address:      @address,
+      phone_number: @phone_number,
+      email:        Faker::Internet.free_email(@full_name)
+    )
+    print '.'
+  end
+  @group_count += 1
 end
-
 members = Member.all
 puts "\n#{Member.count} members created"

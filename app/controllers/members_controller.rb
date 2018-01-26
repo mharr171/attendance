@@ -13,10 +13,10 @@ class MembersController < ApplicationController
 
   def create
     @member = Member.new(member_params)
-    @member.group = @group
 
     if @member.save
       flash[:notice] = 'Member was saved.'
+      @group.members << @member
       redirect_to user_group_path(current_user, @group)
     else
       flash.now[:alert] = 'There was an error saving the member. Please try again.'
